@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/controlmando/static/css/main.28ea4b9a.chunk.css",
-    "main.js": "/controlmando/static/js/main.1e625f3e.chunk.js",
-    "main.js.map": "/controlmando/static/js/main.1e625f3e.chunk.js.map",
+    "main.js": "/controlmando/static/js/main.7a4bfe6d.chunk.js",
+    "main.js.map": "/controlmando/static/js/main.7a4bfe6d.chunk.js.map",
     "runtime-main.js": "/controlmando/static/js/runtime-main.67a0c877.js",
     "runtime-main.js.map": "/controlmando/static/js/runtime-main.67a0c877.js.map",
     "static/js/2.5cc82d53.chunk.js": "/controlmando/static/js/2.5cc82d53.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.67a0c877.js",
     "static/js/2.5cc82d53.chunk.js",
     "static/css/main.28ea4b9a.chunk.css",
-    "static/js/main.1e625f3e.chunk.js"
+    "static/js/main.7a4bfe6d.chunk.js"
   ]
 }
