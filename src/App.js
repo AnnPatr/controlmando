@@ -39,6 +39,10 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="title">Posicionamiento Remoto</h1>
+      <div className='state'>
+        {point && <h1 className="title sub">{`Puerta: ${point.puerta}`}</h1>}
+        {point && <h1 className="title sub">{`Colision: ${point.Colision}`}</h1>}
+      </div>
       <div className="map" id="map">
         {point &&         
         <Map 
