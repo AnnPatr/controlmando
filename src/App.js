@@ -9,6 +9,7 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 import {useCollectionData} from 'react-firebase-hooks/firestore'
 
 import Map from './components/Map';
+import Gas from './components/Gas';
 
 firebase.initializeApp({
   apiKey: "AIzaSyAxx9hZjwDQREt4touQi9gNpgUxk3yqooo",
@@ -42,6 +43,7 @@ const App = () => {
       <div className='state'>
         {point && <h1 className="title sub">{`Puerta: ${point.puerta}`}</h1>}
         {point && <h1 className="title sub">{`Colision: ${point.Colision}`}</h1>}
+        {point && <Gas level={point.Gasolina}/>}
       </div>
       <div className="map" id="map">
         {point &&         
