@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+import firebase from 'firebase';
+import 'firebase/firestore'
+import 'firebase/auth'
+
+import {useAuthState} from 'react-firebase-hooks/auth'
+import {useCollectionData} from 'react-firebase-hooks/firestore'
+
+import Map from './components/Map';
+
+firebase.initializeApp({
+  apiKey: "AIzaSyAxx9hZjwDQREt4touQi9gNpgUxk3yqooo",
+  authDomain: "tegdb-a1246.firebaseapp.com",
+  databaseURL: "https://tegdb-a1246-default-rtdb.firebaseio.com",
+  projectId: "tegdb-a1246",
+  storageBucket: "tegdb-a1246.appspot.com",
+  messagingSenderId: "509166562347",
+  appId: "1:509166562347:web:48f37a7d622d2d90170e6e",
+  measurementId: "G-ZZ2NQ7RSV9"
+})
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+
+
+const App = () => {
+  const [point, setPoint] = useState(false);
+
+  useEffect(() =>{
+    const data = firebase.database().ref('datos_firebase/datos_realtime').once('value', async (snapshot) => {
+      let data = snapshot.val();
+      setPoint(data[Object.keys(data)[Object.keys(data).length - 1]]);
+    })
+  },[])
+  console.log(point);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="title">Posicionamiento Remoto</h1>
+      <div className="map" id="map">
+        {point &&         
+        <Map 
+        point={point}
+        className='map'/>}
+      </div>
+      <footer className="footer">
+        <ul className="names">
+          <li className="name">Desarrollado por Ana Ortigoza, 2021</li>
+        </ul>
+      </footer>
     </div>
   );
 }
+
 
 export default App;
